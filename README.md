@@ -16,7 +16,7 @@ Make a subclass of AdaptiveSidebarViewController and specify the main/side viewc
 
 ```swift
 override func viewDidLoad() {
-	let mainVC = storyboard.instantiateViewControllerWithIdentifier("mainVC")
+    let mainVC = storyboard.instantiateViewControllerWithIdentifier("mainVC")
     mainViewController = mainVC
         
     let detailVC : storyboard.instantiateViewControllerWithIdentifier("detailVC")
@@ -25,6 +25,7 @@ override func viewDidLoad() {
     super.viewDidLoad()
 }
 ```
+
 In order to show/hide the sidebar, you use:
 
 ```swift
@@ -38,4 +39,4 @@ Apart from that, one can modify the following settings:
 Sets the with of the sidebar if displayed in a regular environment.
 
 # License
-ExpandableLabel is available under the MIT license. See the LICENSE file for more info.
+AdaptiveSidebarViewController is available under the MIT license. See the LICENSE file for more info.
