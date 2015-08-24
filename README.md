@@ -1,9 +1,9 @@
 # AdaptiveSidebarViewController
 AdaptiveSidebarViewController is a simple container which can adaptively display a viewcontroller in a sidebar _(regular environment)_ or pushed on the navigation stack _(compact environment)_.
 
-<img src="https://github.com/mkoehnke/AdaptiveSidebarViewController/raw/master/Resources/AdaptiveSidebarViewController_iPad.gif">
+<img src="https://github.com/apploft/AdaptiveSidebarViewController/raw/master/Resources/AdaptiveSidebarViewController_iPad.gif">
 <span>&nbsp;</span>
-<img src="https://github.com/mkoehnke/AdaptiveSidebarViewController/raw/master/Resources/AdaptiveSidebarViewController_iPhone.gif">
+<img src="https://github.com/apploft/AdaptiveSidebarViewController/raw/master/Resources/AdaptiveSidebarViewController_iPhone.gif">
 
 # Installation
 Install via cocoapods by adding this to your Podfile:
