@@ -33,10 +33,11 @@ func showSideView(animated: Bool) -> Void
 func hideSideView(animated: Bool) -> Void
 ```
 
-Apart from that, one can modify the following settings:
+Apart from that, one can modify the sidebar width:
 
-##### SideView Width
-Sets the with of the sidebar if displayed in a regular environment.
+```swift
+sideViewWidth = 320
+```
 
 # License
 AdaptiveSidebarViewController is available under the MIT license. See the LICENSE file for more info.
