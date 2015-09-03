@@ -58,18 +58,20 @@ class AdaptiveSidebarViewController : UIViewController {
     private var toggleAnimationInProgress = false
     
     private func updateSideView(constant: CGFloat, animated: Bool) {
-        if isSideViewControllerShownInSideViewContainer() && toggleAnimationInProgress == false {
-            sideViewRightConstraint.constant = constant
-            view.setNeedsUpdateConstraints()
-            
-            if animated {
-                toggleAnimationInProgress = true
+        if isSideViewControllerShownInSideViewContainer() {
+            if toggleAnimationInProgress == false {
+                sideViewRightConstraint.constant = constant
+                view.setNeedsUpdateConstraints()
                 
-                UIView.animateWithDuration(0.5, animations: { [weak self] in
-                    self?.view.layoutIfNeeded()
-                }, completion: { [weak self] finished in
-                    self?.toggleAnimationInProgress = false
-                })
+                if animated {
+                    toggleAnimationInProgress = true
+                    
+                    UIView.animateWithDuration(0.5, animations: { [weak self] in
+                        self?.view.layoutIfNeeded()
+                        }, completion: { [weak self] finished in
+                            self?.toggleAnimationInProgress = false
+                        })
+                }
             }
         } else {
             if let sideViewController = sideViewController {
