@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, "8.0"
 
-  s.source       = { :git => "https://github.com/apploft/AdaptiveSidebarViewController.git", :tag => s.version.to_s }
+  s.source       = { :git => "https://github.com/explicitcall/AdaptiveSidebarViewController.git", :tag => s.version.to_s }
 
   s.source_files  = "Classes", "Classes/**/*.{swift}"
   s.exclude_files = "Classes/Exclude"
