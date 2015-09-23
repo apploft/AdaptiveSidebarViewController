@@ -50,7 +50,9 @@
 				BF5DFC391B85BE5E00CC8C74 /* AdaptiveSidebarViewControllerDemoTests */,
 				BF5DFC221B85BE5D00CC8C74 /* Products */,
 			);
+			indentWidth = 4;
 			sourceTree = "<group>";
+			tabWidth = 4;
 		};
 		BF5DFC221B85BE5D00CC8C74 /* Products */ = {
 			isa = PBXGroup;
@@ -136,6 +138,8 @@
 		BF5DFC191B85BE5D00CC8C74 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "apploft GmbH";
 				TargetAttributes = {

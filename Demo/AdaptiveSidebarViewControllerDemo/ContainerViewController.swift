@@ -28,12 +28,14 @@ class ContainerViewController: AdaptiveSidebarViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let main = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("MainViewController") as! UIViewController
-        let sideBar = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("SideViewController") as! UIViewController
+        let main = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("MainViewController") 
+        let sideBar = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("SideViewController") 
         
         mainViewController = main
         sideViewController = sideBar
-        
+
+        sideViewWidth = 200
+
         super.viewDidLoad()
     }
 
