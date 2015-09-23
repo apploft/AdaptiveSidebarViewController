@@ -34,13 +34,11 @@ class ContainerViewController: AdaptiveSidebarViewController {
         mainViewController = main
         sideViewController = sideBar
 
-        sideViewWidth = 200
-
         super.viewDidLoad()
     }
 
     @IBAction func toggleButtonTouched(sender: AnyObject) {
-        if sideViewVisible() {
+        if sideViewVisible {
             hideSideView(true)
         } else {
             showSideView(true)
