@@ -43,8 +43,10 @@ class AdaptiveSidebarViewController : UIViewController {
         updateSideView(sideViewWidth, animated: animated)
     }
     
-    func sideViewVisible() -> Bool {
+    var sideViewVisible: Bool {
+      get {
         return sideViewRightConstraint.constant == 0
+      }
     }
     
     //MARK: Private
@@ -101,12 +103,12 @@ class AdaptiveSidebarViewController : UIViewController {
     private func addViewControllerToContainer(viewController: UIViewController, container: UIView) {
         addChildViewController(viewController)
         let subview = viewController.view
-        subview.setTranslatesAutoresizingMaskIntoConstraints(false)
+        subview.translatesAutoresizingMaskIntoConstraints = false
         viewController.beginAppearanceTransition(true, animated: false)
         container.addSubview(subview)
         
-        let hConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|[subview]|", options: nil, metrics: nil, views: ["subview" : subview])
-        let vConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|[subview]|", options: nil, metrics: nil, views: ["subview" : subview])
+        let hConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|[subview]|", options: [], metrics: nil, views: ["subview" : subview])
+        let vConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|[subview]|", options: [], metrics: nil, views: ["subview" : subview])
         container.addConstraints(hConstraints)
         container.addConstraints(vConstraints)
         
@@ -119,29 +121,29 @@ class AdaptiveSidebarViewController : UIViewController {
         viewController.beginAppearanceTransition(false, animated: false)
         viewController.view.removeConstraints()
         viewController.view.removeFromSuperview()
-        viewController.view.setTranslatesAutoresizingMaskIntoConstraints(true)
+        viewController.view.translatesAutoresizingMaskIntoConstraints = true
         viewController.endAppearanceTransition()
         viewController.removeFromParentViewController()
     }
     
     private func setupContainerViews() {
         mainViewContainer = UIView()
-        mainViewContainer.setTranslatesAutoresizingMaskIntoConstraints(false)
+        mainViewContainer.translatesAutoresizingMaskIntoConstraints = false
         mainViewContainer.backgroundColor = UIColor.blueColor()
         view.addSubview(mainViewContainer)
-        let mHConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|[mainView]|", options: nil, metrics: nil, views: ["mainView" : mainViewContainer])
-        let mVConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|[mainView]|", options: nil, metrics: nil, views: ["mainView" : mainViewContainer])
+        let mHConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|[mainView]|", options: [], metrics: nil, views: ["mainView" : mainViewContainer])
+        let mVConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|[mainView]|", options: [], metrics: nil, views: ["mainView" : mainViewContainer])
         view.addConstraints(mHConstraints)
         view.addConstraints(mVConstraints)
         
         sideViewContainer = UIView()
-        sideViewContainer.setTranslatesAutoresizingMaskIntoConstraints(false)
+        sideViewContainer.translatesAutoresizingMaskIntoConstraints = false
         sideViewContainer.backgroundColor = UIColor.redColor()
         view.addSubview(sideViewContainer)
         
         sideViewWidthConstraint = NSLayoutConstraint(item: sideViewContainer, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: sideViewWidth)
         sideViewRightConstraint = NSLayoutConstraint(item: sideViewContainer, attribute: .Right, relatedBy: .Equal, toItem: view, attribute: .Right, multiplier: 1.0, constant: sideViewWidth)
-        let sVConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|[sideView]|", options: nil, metrics: nil, views: ["sideView" : sideViewContainer])
+        let sVConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|[sideView]|", options: [], metrics: nil, views: ["sideView" : sideViewContainer])
         view.addConstraint(sideViewWidthConstraint)
         view.addConstraint(sideViewRightConstraint)
         view.addConstraints(sVConstraints)
@@ -171,7 +173,7 @@ class AdaptiveSidebarViewController : UIViewController {
         super.willTransitionToTraitCollection(newCollection, withTransitionCoordinator: coordinator)
         if let sideViewController = sideViewController {
             hideSideView(false)
-            if isRegularSize(traitCollection: newCollection) {
+            if isRegularSize(newCollection) {
                 removeViewControllerFromContainer(sideViewController, container: sideViewContainer)
                 addViewControllerToContainer(sideViewController, container: sideViewContainer)
             } else {
@@ -183,8 +185,8 @@ class AdaptiveSidebarViewController : UIViewController {
 
 private extension UIView {
     func removeConstraints() {
-        var list = [AnyObject]()
-        if let constraints = superview?.constraints() {
+        var list = [NSLayoutConstraint]()
+        if let constraints = superview?.constraints {
             for c in constraints {
                 if c.firstItem as? UIView == self || c.secondItem as? UIView == self {
                     list.append(c)
