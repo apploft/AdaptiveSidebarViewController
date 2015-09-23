@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "AdaptiveSidebarViewController"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "A simple a simple container which can adaptively display a viewcontroller in a sidebar."
 
   s.description  = <<-DESC
