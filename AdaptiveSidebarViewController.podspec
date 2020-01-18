@@ -16,7 +16,8 @@ Pod::Spec.new do |s|
 
   s.author       = "Mathias Köhnke"
 
-  s.platform     = :ios, "8.0"
+  s.platform     = :ios, "9.0"
+  s.swift_versions = '4.0'
 
   s.source       = { :git => "https://github.com/apploft/AdaptiveSidebarViewController.git", :tag => s.version.to_s }
 
