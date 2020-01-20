@@ -101,7 +101,7 @@ public class AdaptiveSidebarViewController : UIViewController {
     }
     
     private func addViewControllerToContainer(_ viewController: UIViewController, container: UIView) {
-        addChildViewController(viewController)
+        addChild(viewController)
         let subview = viewController.view!
         subview.translatesAutoresizingMaskIntoConstraints = false
         viewController.beginAppearanceTransition(true, animated: false)
@@ -113,17 +113,17 @@ public class AdaptiveSidebarViewController : UIViewController {
         container.addConstraints(vConstraints)
         
         viewController.endAppearanceTransition()
-        viewController.didMove(toParentViewController: self)
+        viewController.didMove(toParent: self)
     }
 
     private func removeViewControllerFromContainer(viewController: UIViewController, container: UIView) {
-        viewController.willMove(toParentViewController: nil)
+        viewController.willMove(toParent: nil)
         viewController.beginAppearanceTransition(false, animated: false)
         viewController.view.removeConstraints()
         viewController.view.removeFromSuperview()
         viewController.view.translatesAutoresizingMaskIntoConstraints = true
         viewController.endAppearanceTransition()
-        viewController.removeFromParentViewController()
+        viewController.removeFromParent()
     }
     
     private func setupContainerViews() {
