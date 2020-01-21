@@ -28,8 +28,8 @@ class ContainerViewController: AdaptiveSidebarViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let main = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("MainViewController") 
-        let sideBar = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("SideViewController") 
+        let main = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") 
+        let sideBar = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SideViewController") 
         
         mainViewController = main
         sideViewController = sideBar
@@ -37,11 +37,11 @@ class ContainerViewController: AdaptiveSidebarViewController {
         super.viewDidLoad()
     }
 
-    @IBAction func toggleButtonTouched(sender: AnyObject) {
+    @IBAction func toggleButtonTouched(_ sender: AnyObject) {
         if sideViewVisible {
-            hideSideView(true)
+            hideSideView(animated: true)
         } else {
-            showSideView(true)
+            showSideView(animated: true)
         }
     }
 
